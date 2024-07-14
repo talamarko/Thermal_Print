@@ -16,37 +16,30 @@
       body {
         direction: rtl;
       }
-      button{
+      button {
         font-size: 20px;
-         border: none;
-         background-color: skyblue;
-         padding: 15px;
-         border-radius: 10px;
+        border: none;
+        background-color: skyblue;
+        padding: 15px;
+        border-radius: 10px;
       }
-      button:hover{
+      button:hover {
         background-color: rgb(117, 180, 205);
         color: white;
-
       }
-      table{
+      table {
         border-color: skyblue;
         margin: auto !important;
       }
-      p{
+      p {
         border-bottom: 1px solid;
-         padding-bottom: 1px;
-         margin: 10px 0; 
+        padding-bottom: 1px;
+        margin: 10px 0;
       }
       @media (max-width: 992px) {
-        p{
+        p {
           font-size: 12px;
         }
-        
-      }
-      .pdfdiv{
-        margin: 0;
-        padding: 0;
-        
       }
     </style>
   </head>
@@ -64,7 +57,7 @@
       <br />
       <br />
       <button id="generatePDF">تحميل</button>
-      <div id="pdfContainer" style="width: 360px; margin: 0; padding: 0;"></div>
+      <div id="pdfContainer" style="width: 360px; margin: 0; padding: 0"></div>
     </div>
     <script>
       let barcode = [],
@@ -177,7 +170,7 @@
           const barcodeText = row.find(".barcode").text();
 
           const pdfSection = $(
-            `<div class="pdfdiv" style="page-break-after: always; text-align: center; height:55vh;"></div>`
+            `<div class="pdfdiv" style="page-break-after: always; text-align: center; height:550px;"></div>`
           );
           if (imageData) {
             pdfSection.append(
@@ -185,7 +178,7 @@
             );
           }
           const dateStr = row.find(".date").text();
-const formattedDateStr = dateStr.replace(/\s+/g, "\\"); // Replace spaces with "||"
+          const formattedDateStr = dateStr.replace(/\s+/g, "\\"); // Replace spaces with "||"
 
           pdfSection.append(`
                      <div style="display: flex;">
@@ -205,15 +198,9 @@ const formattedDateStr = dateStr.replace(/\s+/g, "\\"); // Replace spaces with "
                       <p style=" font-family: 'myriad-arabic', sans-serif;">${row
                         .find(".customerName")
                         .text()}</p>
-                      <p style="">${row
-                        .find(".city")
-                        .text()}</p>
-                      <p style="">${row
-                        .find(".country")
-                        .text()}</p>
-                      <p style="">${row
-                        .find(".total")
-                        .text()}</p>
+                      <p style="">${row.find(".city").text()}</p>
+                      <p style="">${row.find(".country").text()}</p>
+                      <p style="">${row.find(".total").text()}</p>
                       <p style=" margin-bottom: 2px; ">${formattedDateStr}</p>
                       <p style="font-family: 'myriad-arabic', sans-serif; margin-top: 2px; border-bottom: none;">${row
                         .find(".address")
