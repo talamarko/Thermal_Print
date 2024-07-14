@@ -35,7 +35,17 @@
       p{
         border-bottom: 1px solid;
          padding-bottom: 1px;
-         margin: 10px 0;
+         margin: 10px 0; 
+      }
+      @media (max-width: 992px) {
+        p{
+          font-size: 12px;
+        }
+        
+      }
+      .pdfdiv{
+        margin: 0;
+        padding: 0;
         
       }
     </style>
@@ -54,7 +64,7 @@
       <br />
       <br />
       <button id="generatePDF">تحميل</button>
-      <div id="pdfContainer" style="width: 360px"></div>
+      <div id="pdfContainer" style="width: 360px; margin: 0; padding: 0;"></div>
     </div>
     <script>
       let barcode = [],
@@ -167,7 +177,7 @@
           const barcodeText = row.find(".barcode").text();
 
           const pdfSection = $(
-            `<div style="page-break-after: always; text-align: center; height:550px;"></div>`
+            `<div class="pdfdiv" style="page-break-after: always; text-align: center; height:55vh;"></div>`
           );
           if (imageData) {
             pdfSection.append(
