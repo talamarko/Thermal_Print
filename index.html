@@ -33,8 +33,8 @@
       }
       p {
         border-bottom: 1px solid;
-        padding-bottom: 1px;
-        margin: 10px 0;
+        padding-bottom: 1px !important;
+        margin: 10px 0 !important;
       }
       @media (max-width: 992px) {
         p {
@@ -170,39 +170,39 @@
           const barcodeText = row.find(".barcode").text();
 
           const pdfSection = $(
-            `<div class="pdfdiv" style="page-break-after: always; text-align: center; height:550px;"></div>`
+            `<div class="pdfdiv" style="page-break-after: always !important; text-align: center !important; height:550px !important;"></div>`
           );
           if (imageData) {
             pdfSection.append(
-              `<img src="${imageData}" alt="Image" style="width: 160px; height:160px">`
+              `<img src="${imageData}" alt="Image" style="width: 160px !important; height:160px !important">`
             );
           }
           const dateStr = row.find(".date").text();
           const formattedDateStr = dateStr.replace(/\s+/g, "\\"); // Replace spaces with "||"
 
           pdfSection.append(`
-                     <div style="display: flex; height: 206px;">
+                     <div style="display: flex !important; height: 206px !important;">
                      <div style="width: 20%;">
-                      <p style=" margin-bottom: 40px; margin-top: 0; font-family: 'myriad-arabic', sans-serif; ">رقم الهاتف</p>
-                        <p style=" font-family: 'myriad-arabic', sans-serif;">الاسم</p>
+                      <p style=" margin-bottom: 40px !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important; ">رقم الهاتف</p>
+                        <p style=" font-family: 'myriad-arabic', sans-serif !important;">الاسم</p>
                         <p style="">المدينه</p>
                         <p style="">الدوله</p>
                         <p style="">الاجمالى</p>
-                        <p style=" margin-bottom: 2px;">التاريخ</p>
-                        <p style="font-family: 'myriad-arabic', sans-serif; margin-top: 2px; border-bottom: none;">العنوان</p>
+                        <p style=" margin-bottom: 2px !important;">التاريخ</p>
+                        <p style="font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none  !important;">العنوان</p>
                      </div>
                      <div style="width: 80%;">
-                      <p style=" margin-bottom: 40px; margin-top: 0; font-family: 'myriad-arabic', sans-serif; "  >${row
+                      <p style=" margin-bottom: 40px !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important; "  >${row
                         .find(".phoneNum")
                         .text()}</p>
-                      <p style=" font-family: 'myriad-arabic', sans-serif;">${row
+                      <p style=" font-family: 'myriad-arabic', sans-serif !important;">${row
                         .find(".customerName")
                         .text()}</p>
                       <p style="">${row.find(".city").text()}</p>
                       <p style="">${row.find(".country").text()}</p>
                       <p style="">${row.find(".total").text()}</p>
-                      <p style=" margin-bottom: 2px; ">${formattedDateStr}</p>
-                      <p style="font-family: 'myriad-arabic', sans-serif; margin-top: 2px; border-bottom: none;">${row
+                      <p style=" margin-bottom: 2px !important; ">${formattedDateStr}</p>
+                      <p style="font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none  !important;">${row
                         .find(".address")
                         .text()}</p>
                     </div>
