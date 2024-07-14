@@ -32,9 +32,8 @@
         margin: auto !important;
       }
       p {
-        border-bottom: 1px solid;
         padding-bottom: 1px !important;
-        margin: 10px 0 !important;
+        margin: 5px 0 !important;
       }
       @media (max-width: 992px) {
         p {
@@ -181,34 +180,39 @@
           const formattedDateStr = dateStr.replace(/\s+/g, "\\"); // Replace spaces with "||"
 
           pdfSection.append(`
-                     <div style="display: flex !important; height: 206px !important;">
-                     <div style="width: 20%;">
-                      <p style=" margin-bottom: 40px !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important; ">رقم الهاتف</p>
-                        <p style=" font-family: 'myriad-arabic', sans-serif !important;">الاسم</p>
-                        <p style="">المدينه</p>
-                        <p style="">الدوله</p>
-                        <p style="">الاجمالى</p>
-                        <p style=" margin-bottom: 2px !important;">التاريخ</p>
-                        <p style="font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none  !important;">العنوان</p>
-                     </div>
-                     <div style="width: 80%;">
-                      <p style=" margin-bottom: 40px !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important; "  >${row
-                        .find(".phoneNum")
-                        .text()}</p>
-                      <p style=" font-family: 'myriad-arabic', sans-serif !important;">${row
-                        .find(".customerName")
-                        .text()}</p>
-                      <p style="">${row.find(".city").text()}</p>
-                      <p style="">${row.find(".country").text()}</p>
-                      <p style="">${row.find(".total").text()}</p>
-                      <p style=" margin-bottom: 2px !important; ">${formattedDateStr}</p>
-                      <p style="font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none  !important;">${row
-                        .find(".address")
-                        .text()}</p>
-                    </div>
-                    </div>
-                    <svg id="barcode${rowIndex}"></svg>
-                `);
+  <div style="">
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid; margin-bottom: 30px" margin-top: 0;>
+      <p style="width: 20%; !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important;">رقم الهاتف</p>
+      <p style="width: 80%; !important; margin-top: 0 !important; font-family: 'myriad-arabic', sans-serif !important;">${row.find(".phoneNum").text()}</p>
+    </div>
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid;">
+      <p style="width: 20%; font-family: 'myriad-arabic', sans-serif !important;">الاسم</p>
+      <p style="width: 80%; font-family: 'myriad-arabic', sans-serif !important;">${row.find(".customerName").text()}</p>
+    </div>
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid;">
+      <p style="width: 20%;">المدينه</p>
+      <p style="width: 80%;">${row.find(".city").text()}</p>
+    </div>
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid;">
+      <p style="width: 20%;">الدوله</p>
+      <p style="width: 80%;">${row.find(".country").text()}</p>
+    </div>
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid;">
+      <p style="width: 20%;">الاجمالى</p>
+      <p style="width: 80%;">${row.find(".total").text()}</p>
+    </div>
+    <div style="display: flex !important; clear: both; border-bottom: 1px solid;">
+      <p style="width: 20%; margin-bottom: 2px !important;">التاريخ</p>
+      <p style="width: 80%; margin-bottom: 2px !important;">${formattedDateStr}</p>
+    </div>
+    <div style="display: flex !important; clear: both;">
+      <p style="width: 20%; font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none !important;">العنوان</p>
+      <p style="width: 80%; font-family: 'myriad-arabic', sans-serif !important; margin-top: 2px !important; border-bottom: none !important;">${row.find(".address").text()}</p>
+    </div>
+  </div>
+  <svg id="barcode${rowIndex}"></svg>
+`);
+
           $("#pdfContainer").append(pdfSection);
 
           // Generate barcode
